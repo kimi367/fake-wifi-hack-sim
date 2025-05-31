@@ -1,0 +1,22 @@
+import random
+import pyperclip
+import time
+
+# 模拟一个正确WiFi密码（比如你妈设置的）（这里为了提高速度，本人设置了1位数，自己可以改）
+real_pass = "9"
+
+# 模拟爆破
+attempts = 0
+while True:
+    fake_pass = ''.join(random.choices('0123456789', k=1))
+    attempts += 1
+    print(f'🚀 尝试第 {attempts} 次，口令：{fake_pass}')
+
+    # 模拟“猜中”
+    if fake_pass == real_pass:
+        print(f'✅ WiFi占便宜成功!!! 密码是：{fake_pass}')
+        pyperclip.copy(fake_pass)
+        break
+    else:
+        print(f'😤 老子Python不想动了，但还是继续…… [{fake_pass}]')
+        time.sleep(0.1)  # 为了看得清，延迟一下
